@@ -6,35 +6,6 @@
     <title>Unity WebGL Player | DehliDemo</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
-	<style>
-      body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-      }
-      #unity-container {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      }
-      #unity-canvas {
-      width: 100%;
-      height: 100%;
-      background-color: black;
-      }
-      #unity-footer {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-      z-index: 10;
-      }
-      #unity-webgl-logo, #unity-fullscreen-button {
-      display: none;
-      }
-    </style>
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -46,11 +17,11 @@
         </div>
       </div>
       <div id="unity-warning"> </div>
-      <!-- <div id="unity-footer"> -->
-        <!-- <div id="unity-webgl-logo"></div> -->
-        <!-- <div id="unity-fullscreen-button"></div> -->
-        <!-- <div id="unity-build-title">DehliDemo</div> -->
-      <!-- </div> -->
+      <div id="unity-footer">
+        <div id="unity-webgl-logo"></div>
+        <div id="unity-fullscreen-button"></div>
+        <div id="unity-build-title">DehliDemo</div>
+      </div>
     </div>
     <script>
 
@@ -123,8 +94,8 @@
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
-        canvas.style.width = "100%";
-        canvas.style.height = "100%";
+        canvas.style.width = "960px";
+        canvas.style.height = "600px";
       }
 
       loadingBar.style.display = "block";
@@ -136,9 +107,9 @@
           progressBarFull.style.width = 100 * progress + "%";
               }).then((unityInstance) => {
                 loadingBar.style.display = "none";
-                <!-- fullscreenButton.onclick = () => { -->
-                  <!-- unityInstance.SetFullscreen(1); -->
-                <!-- }; -->
+                fullscreenButton.onclick = () => {
+                  unityInstance.SetFullscreen(1);
+                };
               }).catch((message) => {
                 alert(message);
               });
